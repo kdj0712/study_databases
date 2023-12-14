@@ -25,7 +25,7 @@ def insert(): # 입력을 받는 전체 과정을 통합한 function의 이름�
 collection = Connect() 
 # MongoDB에 연결하기 위해 function을 호출해서(Connect()) collection객체를 받아올 'collection'리턴값을 매칭해준다.
 
-while True: #아래의 행동을 반복하는 ㄴ구문을 만든다
-    insert_fruits = insert() #입력받는 function인 insert()를 실행하여, 그 리턴값인 insert_fruits를 받는다.
+while True:#아래의 행동을 반복하는 구문을 만든다
+    insert_fruits = insert()  #입력받는 function인 insert()를 실행하여, 그 리턴값인 insert_fruits를 받는다.
     collection.insert_one(insert_fruits) #리턴받은 insert_fruits를 collection에 입력한다.
 
