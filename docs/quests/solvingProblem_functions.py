@@ -45,7 +45,9 @@ collection = Connect() #위의 MongoDB와의 연결을 호출한 뒤 이것을 c
 quiz_list = insert_quiz_list() #딕셔너리의 리스트의 function화 한 기능을 호출하고 quiz_list라는 변수로 선언한다.
 
 for x in quiz_list:  # 위의 리스트를 x라는 변수에 넣는 것을 반복한다.
-    collection.insert_one(x) #MongoDB에 연결하여 리스트에 있는 내용을 한 라인씩 입력한다.
-    pass 
+    if collection.count_documents(x) == 0: # 동일한 내용이 collection에 있는지 확인하고, 없을 경우만 내용을 저장하도록 한다.
+        collection.insert_one(x) #MongoDB에 연결하여 리스트에 있는 내용을 한 라인씩 입력한다.
+        pass 
 
 
+insert_quiz_list() #function 실행
