@@ -20,8 +20,8 @@ db.posts.find({ category : {$in : ["Event","Tech"]}} , {title:1,category:1,likes
 db.posts.find({ $and : [ { category : { $in : ["Event","Tech"] }}, { likes : { $gt : 4 } } ] } , {title:1,category:1,likes:1});   $and 조건은 하위 조건에 포함되는 내용들을 
 db.posts.updateMany({category : {$eq : "Technology"} },
                     { $set : { likes : 1, body:"update Post" }});
-
-
+db.fruits_colors.find({fruits_id : { $eq : ObjectId(657bf126e52c79ca7df148a7")} });
+db.fruits_colors.find({  }); 변수 + 부등식 + 기준값
 compass 연동 python 명령어
 
 - insert_result.inserted_ids 
