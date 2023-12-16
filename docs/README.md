@@ -1,4 +1,4 @@
-##### MongoDB Functions  ####
+##### MongoDB Functions copy  ####
 
 Compass 내 Console 명령어
 사용하기 전에 필요한 컬렉션을 미리 지정하는 use 해당 컬렉션을 선정하고 사용
