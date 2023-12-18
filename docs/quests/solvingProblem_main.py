@@ -1,6 +1,6 @@
-import solvingProblem_functions copy # SolvingProblem_functions copy라는 파이썬 파일(모듈)을 호출한다.
+import solvingProblem_functions # SolvingProblem_functions copy라는 파이썬 파일(모듈)을 호출한다.
 
-collection = solvingProblem_functions copy.Connect() #호출한 파읠의 Connect라는 function을 호출하여 collection이라는 변수로 지정한다.
+collection = solvingProblem_functions.Connect() #호출한 파읠의 Connect라는 function을 호출하여 collection이라는 변수로 지정한다.
 
 def run(): # 출제된 문제를 출력하고 실행할 function을 생성한다.
     quiz_list = list(collection.find()) # collection에 있는 모든 문서를 가져와 list로 만들고, 그것을 quiz_list라고 지정한다.

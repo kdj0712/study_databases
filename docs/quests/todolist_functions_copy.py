@@ -48,7 +48,6 @@ def get_name():
     inserted_participants = get_names_id.inserted_id
     return inserted_participants
 
-inserted_participants = get_name()
 
 def survey(todo_list): 
     todo_list = list(todos_list.find()) 
@@ -73,31 +72,34 @@ def stutus_input():
         else:
             print("잘못 입력하셨습니다. 다시 입력해 주세요.")
             
-def update_database(user_answer, status, inserted_participants):
+def update_database(user_answer, status,inserted_participants):
     status_str = "업무 완료" if status == 'd' else "업무 진행중"
-    participants_todos.update_many({ '_id' : user_answer },
-                                   {"$set" : {str(inserted_participants): status_str}},
-                                   upsert=True)
+    participants_todos.update_one({ '_id' : user_answer },
+                                   {"$set" : {str(inserted_participants): status_str}}, upsert=True)
     print(status_str)
 
-def running(): 
-    todo_list = list(todos_list.find()) 
-    user_answer = survey(todo_list)
-    status = stutus_input()
-    update_database(user_answer, status, inserted_participants)
-
 def run():
-    while True:
-        running()
+    while True: 
+        todo_list = list(todos_list.find()) 
+        inserted_participants = get_name()
+        user_answer = survey(todo_list)
+        status = stutus_input()
+        update_database(user_answer, status,inserted_participants)
         exit = ' '
         while exit != "x" and exit != "X":
             exit = input("설문을 계속 진행하시려면 'C', 설문을 종료하시려면 'Q', 프로그램을 종료하시려면 'X'를 입력해 주세요. :")
             if exit in ['c','C']:
-                running()
+                todo_list = list(todos_list.find()) 
+                user_answer = survey(todo_list)
+                status = stutus_input()
+                update_database(user_answer, status,inserted_participants)
             elif exit in ['q','Q']:
                 print("=====" * 15)
-                get_name()
-                running()
+                inserted_participants = get_name()
+                todo_list = list(todos_list.find()) 
+                user_answer = survey(todo_list)
+                status = stutus_input()
+                update_database(user_answer, status,inserted_participants)
             elif exit in ['x','X']:
                 pass
             else:
