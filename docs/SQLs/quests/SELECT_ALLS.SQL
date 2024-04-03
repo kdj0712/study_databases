@@ -31,12 +31,12 @@ LEFT JOIN (
     GROUP BY Orders.EmployeeID
 ) AS TotalSales ON Employees.EmployeeID = TotalSales.EmployeeID
 ORDER BY TotalSales.SUM_TOTAL ASC
-LIMIT 1,3
+LIMIT 3
 ;
 -- EmployeeID     LastName	    FirstName	 BirthDate	         Photo	        Notes	SUM_TOTAL
---      6       	Suyama	    Michael	     1963-07-02	    EmpID6.pic	Michael is a graduate of Sussex University (MA, economics) and the University of California at Los Angeles (MBA, marketing). He has also taken the courses 'Multi-Cultural Selling' and 'Time Management for the Sales Professional'. He is fluent in Japanese and can read and write French, Portuguese, and Spanish.	83673.45
---      9	        Dodsworth	Anne	     1969-07-02	    EmpID9.pic	Anne has a BA degree in English from St. Lawrence College. She is fluent in French and German.	86566.60
---      8   	    Callahan	Laura	     1958-01-09	    EmpID8.pic	Laura received a BA in psychology from the University of Washington. She has also completed a course in business French. She reads and writes French.	143950.86
+-- 5	Buchanan	Steven	1955-03-04	EmpID5.pic	Steven Buchanan graduated from St. Andrews University, Scotland, with a BSC degree. Upon joining the company as a sales representative, he spent 6 months in an orientation program at the Seattle office and then returned to his permanent post in London, where he was promoted to sales manager. Mr. Buchanan has completed the courses 'Successful Telemarketing' and 'International Sales Management'. He is fluent in French.	81745.85
+-- 6	Suyama	Michael	1963-07-02	EmpID6.pic	Michael is a graduate of Sussex University (MA, economics) and the University of California at Los Angeles (MBA, marketing). He has also taken the courses 'Multi-Cultural Selling' and 'Time Management for the Sales Professional'. He is fluent in Japanese and can read and write French, Portuguese, and Spanish.	83673.45
+-- 9	Dodsworth	Anne	1969-07-02	EmpID9.pic	Anne has a BA degree in English from St. Lawrence College. She is fluent in French and German.	86566.60
 + 조건 : 배송 회사별 총 배송 건수와 총 제품 금액 정보
 
 SELECT Shippers.*, TotalSales.SUM_TOTAL, TotalDeliveries.DELIVERY
